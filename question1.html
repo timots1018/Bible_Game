@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Story Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Quiz Section -->
+        <div id="quizSection">
+            <h1>Guess the Bible Story!</h1>
+            
+            <div class="image-grid">
+                <div class="image-box">
+                    <div class="placeholder-text">🌧️💧<br>40 Days &amp; 40 Nights<br>of Rain</div>
+                </div>
+                <div class="image-box">
+                    <div class="placeholder-text">🐘🦁🐅🦒<br>Two of Every<br>Animal</div>
+                </div>
+                <div class="image-box">
+                    <div class="placeholder-text">⛵🌊<br>A Large Wooden<br>Boat</div>
+                </div>
+                <div class="image-box">
+                    <div class="placeholder-text">🌈☀️<br>God's Promise<br>in the Sky</div>
+                </div>
+            </div>
+
+            <div class="answer-section">
+                <div class="input-group">
+                    <input type="text" id="answerInput" placeholder="Enter the Bible story name...">
+                    <button onclick="checkAnswer()">Submit</button>
+                </div>
+                <div class="error-message" id="errorMessage">Incorrect! Try again.</div>
+            </div>
+        </div>
+
+        <!-- Reveal Section (Hidden by default) -->
+        <div id="revealSection" class="reveal-content">
+            <h2>✝️ Correct!</h2>
+            <p>Well done! The story of Noah's Ark is found in Genesis 6-9. God instructed Noah to build an ark to save his family and two of every kind of animal from the great flood. After 40 days and 40 nights of rain, the flood waters receded, and God set a rainbow in the sky as a promise to never again destroy the earth with a flood.</p>
+        </div>
+    </div>
+
+    <script>
+        // Configuration - Change these values
+        const CORRECT_ANSWER = "noah's ark"; // Set your correct answer here (case-insensitive)
+        const REVEAL_TEXT = "Well done! The story of Noah's Ark is found in Genesis 6-9. God instructed Noah to build an ark to save his family and two of every kind of animal from the great flood. After 40 days and 40 nights of rain, the flood waters receded, and God set a rainbow in the sky as a promise to never again destroy the earth with a flood.";
+
+        function checkAnswer() {
+            const userAnswer = document.getElementById('answerInput').value.trim().toLowerCase();
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Check if answer is correct (case-insensitive)
+            if (userAnswer === CORRECT_ANSWER.toLowerCase()) {
+                // Hide quiz section
+                document.getElementById('quizSection').classList.add('hidden');
+                
+                // Update and show reveal section
+                document.querySelector('.reveal-content p').textContent = REVEAL_TEXT;
+                document.getElementById('revealSection').style.display = 'block';
+                
+                // Hide error message
+                errorMessage.style.display = 'none';
+            } else {
+                // Show error message
+                errorMessage.style.display = 'block';
+                
+                // Shake animation
+                errorMessage.style.animation = 'none';
+                setTimeout(() => {
+                    errorMessage.style.animation = 'shake 0.5s';
+                }, 10);
+            }
+        }
+
+        // Allow Enter key to submit
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('answerInput').addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    checkAnswer();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
