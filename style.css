@@ -188,18 +188,19 @@ h1::after {
 
 /* Image description caption — sits below the image */
 .image-description {
-  padding: 0.75rem 1rem 0.9rem;
-  background: var(--parchment-dark);
-  border-top: 1px solid rgba(200, 146, 42, 0.25);
-  font-family: 'Crimson Pro', serif;
-  font-size: 0.92rem;
-  font-style: italic;
-  font-weight: 400;
-  color: var(--ink-faded);
-  letter-spacing: 0.02em;
+  padding: 0.85rem 1rem 1rem;
+  background: var(--ink);
+  border-top: 2px solid var(--gold);
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 0.72rem;
+  font-style: normal;
+  font-weight: 700;
+  color: var(--gold-light);
+  letter-spacing: 0.06em;
   text-align: center;
-  line-height: 1.5;
+  line-height: 1.6;
   flex-shrink: 0;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
 }
 
 /* === Answer Section === */
