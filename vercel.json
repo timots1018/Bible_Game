@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/question16", "destination": "/fakeqr.html" }
+  ]
+}
